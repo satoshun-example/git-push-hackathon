@@ -1,10 +1,11 @@
-package com.github.satoshun.example.gitpushhackathon
+package com.github.satoshun.example.gitpushhackathon.login
 
 import android.os.Bundle
 import android.support.customtabs.CustomTabsIntent
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import androidx.net.toUri
+import com.github.satoshun.example.gitpushhackathon.R
 
 
 class MainActivity : AppCompatActivity() {
