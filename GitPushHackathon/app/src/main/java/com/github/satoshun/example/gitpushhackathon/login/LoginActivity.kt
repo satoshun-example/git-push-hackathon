@@ -2,16 +2,16 @@ package com.github.satoshun.example.gitpushhackathon.login
 
 import android.os.Bundle
 import android.support.customtabs.CustomTabsIntent
-import android.support.v7.app.AppCompatActivity
 import android.view.View
 import androidx.net.toUri
 import com.github.satoshun.example.gitpushhackathon.R
+import dagger.android.support.DaggerAppCompatActivity
 
 
-class MainActivity : AppCompatActivity() {
+class LoginActivity : DaggerAppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.main_act)
+    setContentView(R.layout.login_act)
 
     findViewById<View>(R.id.login).setOnClickListener {
       loginGitHub()
