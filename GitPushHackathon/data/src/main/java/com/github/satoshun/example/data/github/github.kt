@@ -5,5 +5,5 @@ import retrofit2.http.GET
 
 interface GitHub {
   @GET("users/whatever")
-  fun oauth2(): Deferred<Any>
+  fun oauth2(code: String): Deferred<Any>
 }

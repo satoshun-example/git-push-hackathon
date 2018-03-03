@@ -1,5 +1,7 @@
-package com.github.satoshun.example.gitpushhackathon.feed
+package com.github.satoshun.example.gitpushhackathon.ui.feed
 
+import com.github.satoshun.example.gitpushhackathon.ui.fluxsupport.BaseSink
+import com.github.satoshun.example.gitpushhackathon.ui.fluxsupport.BaseSource
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

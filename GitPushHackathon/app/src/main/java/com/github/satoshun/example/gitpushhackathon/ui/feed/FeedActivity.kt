@@ -1,12 +1,14 @@
-package com.github.satoshun.example.gitpushhackathon.feed
+package com.github.satoshun.example.gitpushhackathon.ui.feed
 
 import android.os.Bundle
 import com.github.satoshun.example.gitpushhackathon.R
+import com.github.satoshun.example.gitpushhackathon.ui.fluxsupport.BaseSink
+import com.github.satoshun.example.gitpushhackathon.ui.fluxsupport.BaseSource
 import dagger.android.support.DaggerAppCompatActivity
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.processors.PublishProcessor
-import io.reactivex.rxkotlin.cast
+import io.reactivex.rxkotlin.ofType
 import javax.inject.Inject
 
 class FeedActivity : DaggerAppCompatActivity() {
@@ -39,14 +41,6 @@ sealed class FeedAction {
   data class FeedError(val error: Throwable) : FeedAction()
 }
 
-interface BaseSource<T> {
-  val actions: Flowable<T>
-}
-
-interface BaseSink<T> {
-  fun dispatch(action: T)
-}
-
 class FeedDispatcher @Inject constructor() :
     BaseSource<FeedAction>,
     BaseSink<FeedAction> {
@@ -60,6 +54,6 @@ class FeedDispatcher @Inject constructor() :
 class FeedStore @Inject constructor(
     source: BaseSource<FeedAction>
 ) {
-  val newFeeds: Flowable<FeedEntryList> = source.actions.cast()
-  val errorFeed: Flowable<FeedError> = source.actions.cast()
+  val newFeeds: Flowable<FeedEntryList> = source.actions.ofType()
+  val errorFeed: Flowable<FeedError> = source.actions.ofType()
 }
