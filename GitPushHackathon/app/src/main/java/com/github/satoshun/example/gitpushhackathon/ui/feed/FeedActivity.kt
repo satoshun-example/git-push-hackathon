@@ -2,8 +2,8 @@ package com.github.satoshun.example.gitpushhackathon.ui.feed
 
 import android.os.Bundle
 import com.github.satoshun.example.gitpushhackathon.R
-import com.github.satoshun.example.gitpushhackathon.ui.fluxsupport.BaseSink
-import com.github.satoshun.example.gitpushhackathon.ui.fluxsupport.BaseSource
+import com.github.satoshun.example.gitpushhackathon.common.fluxsupport.BaseSink
+import com.github.satoshun.example.gitpushhackathon.common.fluxsupport.BaseSource
 import dagger.android.support.DaggerAppCompatActivity
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers

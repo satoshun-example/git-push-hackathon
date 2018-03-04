@@ -1,4 +1,4 @@
-package com.github.satoshun.example.gitpushhackathon.ui.fluxsupport
+package com.github.satoshun.example.gitpushhackathon.common.fluxsupport
 
 import io.reactivex.Flowable
 
