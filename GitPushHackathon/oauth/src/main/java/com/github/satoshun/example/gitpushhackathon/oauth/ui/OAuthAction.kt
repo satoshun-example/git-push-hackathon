@@ -3,14 +3,11 @@ package com.github.satoshun.example.gitpushhackathon.oauth.ui
 import com.github.satoshun.example.gitpushhackathon.common.di.PerActivity
 import com.github.satoshun.example.gitpushhackathon.common.fluxsupport.BaseSink
 import com.github.satoshun.example.gitpushhackathon.common.fluxsupport.BaseSource
+import com.github.satoshun.example.gitpushhackathon.common.fluxsupport.Result
 import io.reactivex.processors.PublishProcessor
 import javax.inject.Inject
 
-typealias OAuthSuccessAction = OAuthAction.OAuthSuccessAction
-
-sealed class OAuthAction {
-  object OAuthSuccessAction : OAuthAction()
-}
+data class OAuthAction(val result: Result<Unit>)
 
 @PerActivity
 class OAuthActionDispatcher @Inject constructor() :
@@ -28,4 +25,10 @@ class OAuthActionStore @Inject constructor(
     source: BaseSource<OAuthAction>
 ) {
   val onFinishPage = source.actions
+      .map { it.result }
+      .ofType(Result.Ok::class.java)
+
+  val showFailedDialog = source.actions
+      .map { it.result }
+      .ofType(Result.Error::class.java)
 }

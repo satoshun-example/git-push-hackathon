@@ -6,14 +6,16 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.github.satoshun.example.gitpushhackathon.R
 import com.github.satoshun.example.gitpushhackathon.common.di.PerActivity
-import com.github.satoshun.example.gitpushhackathon.data.action.OAuthCodeStore
+import com.github.satoshun.example.gitpushhackathon.data.action.OAuthAccessTokenStore
 import com.github.satoshun.example.gitpushhackathon.oauth.ui.OAuthActivity
+import com.github.satoshun.io.reactivex.lifecycleowner.subscribeOf
 import dagger.android.support.DaggerAppCompatActivity
+import io.reactivex.android.schedulers.AndroidSchedulers
 import javax.inject.Inject
 
 class LoginActivity : DaggerAppCompatActivity() {
 
-  @Inject lateinit var oauthStore: OAuthCodeStore
+  @Inject lateinit var oauthStore: OAuthAccessTokenStore
 
   @Inject lateinit var navigator: LoginNavigator
 
@@ -28,6 +30,11 @@ class LoginActivity : DaggerAppCompatActivity() {
   }
 
   private fun watchStore() {
+    oauthStore.onOAuthAccessToken
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribeOf(this, onNext = {
+          it
+        })
   }
 }
 

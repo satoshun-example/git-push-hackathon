@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Toast
 import com.github.satoshun.example.gitpushhackathon.oauth.BuildConfig
 import com.github.satoshun.example.gitpushhackathon.oauth.R
 import com.github.satoshun.example.gitpushhackathon.oauth.databinding.OauthActBinding
@@ -47,6 +48,11 @@ class OAuthActivity : DaggerAppCompatActivity() {
         .observeOn(AndroidSchedulers.mainThread())
         .subscribeOf(this, onNext = {
           finish()
+        })
+    store.showFailedDialog
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribeOf(this, onNext = {
+          Toast.makeText(this, "failed get token ${it.error}", Toast.LENGTH_SHORT).show()
         })
   }
 }

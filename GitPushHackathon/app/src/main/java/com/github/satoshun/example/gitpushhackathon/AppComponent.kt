@@ -1,7 +1,7 @@
 package com.github.satoshun.example.gitpushhackathon
 
 import com.github.satoshun.example.data.github.ApiModule
-import com.github.satoshun.example.gitpushhackathon.data.action.OAuthCodeModule
+import com.github.satoshun.example.gitpushhackathon.data.action.OAuthAccessTokenModule
 import com.github.satoshun.example.gitpushhackathon.oauth.ui.OAuthActivityModule
 import com.github.satoshun.example.gitpushhackathon.ui.feed.FeedActivityModule
 import com.github.satoshun.example.gitpushhackathon.ui.login.LoginActivityModule
@@ -32,6 +32,6 @@ interface AppComponent : AndroidInjector<App> {
 }
 
 @Module(includes = [
-  OAuthCodeModule::class
+  OAuthAccessTokenModule::class
 ])
 interface AppDispatcherModule
