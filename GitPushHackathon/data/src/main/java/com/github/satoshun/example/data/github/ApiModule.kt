@@ -24,7 +24,7 @@ class ApiModule {
     val contentType = MediaType.parse("application/json")!!
     val json = JSON
     return Retrofit.Builder()
-        .baseUrl("https://api.github.com")
+        .baseUrl("https://github.com")
         .addConverterFactory(stringBased(contentType, json::parse, json::stringify))
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .client(client)

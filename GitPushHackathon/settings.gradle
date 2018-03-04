@@ -1,1 +1,4 @@
-include ':app', ':data'
+include ':app'
+include ':data'
+include ':modules:oauth'
+include ':modules:common'

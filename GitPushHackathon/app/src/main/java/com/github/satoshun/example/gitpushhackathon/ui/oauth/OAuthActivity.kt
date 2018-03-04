@@ -40,14 +40,15 @@ class OAuthActivity : DaggerAppCompatActivity() {
     }
 
     watchStore()
-
     binding.webview.loadUrl(url)
   }
 
   private fun watchStore() {
     store.onFinishPage
         .observeOn(AndroidSchedulers.mainThread())
-        .subscribeOf(this, onNext = {})
+        .subscribeOf(this, onNext = {
+          finish()
+        })
   }
 }
 
