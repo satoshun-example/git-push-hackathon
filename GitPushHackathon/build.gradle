@@ -1,6 +1,4 @@
 buildscript {
-  ext.kotlin_version = '1.2.30'
-  ext.serialization_version = '0.4.1'
   repositories {
     google()
     jcenter()
@@ -8,8 +6,8 @@ buildscript {
   }
   dependencies {
     classpath "com.android.tools.build:gradle:3.1.0-beta4"
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    classpath "org.jetbrains.kotlinx:kotlinx-gradle-serialization-plugin:$serialization_version"
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin_version}"
+    classpath "org.jetbrains.kotlinx:kotlinx-gradle-serialization-plugin:${Versions.serialization_version}"
   }
 }
 
