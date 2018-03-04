@@ -1,9 +1,9 @@
-package com.github.satoshun.example.gitpushhackathon.ui.oauth
+package com.github.satoshun.example.gitpushhackathon.oauth.ui
 
 import com.github.satoshun.example.data.github.GitHub
-import com.github.satoshun.example.gitpushhackathon.BuildConfig
-import com.github.satoshun.example.gitpushhackathon.action.OAuthCode
 import com.github.satoshun.example.gitpushhackathon.common.fluxsupport.BaseSink
+import com.github.satoshun.example.gitpushhackathon.data.action.OAuthCode
+import com.github.satoshun.example.gitpushhackathon.oauth.BuildConfig
 import kotlinx.coroutines.experimental.async
 import javax.inject.Inject
 import javax.inject.Singleton

@@ -1,16 +1,15 @@
 package com.github.satoshun.example.gitpushhackathon
 
 import com.github.satoshun.example.data.github.ApiModule
-import com.github.satoshun.example.gitpushhackathon.action.OAuthCodeModule
+import com.github.satoshun.example.gitpushhackathon.data.action.OAuthCodeModule
+import com.github.satoshun.example.gitpushhackathon.oauth.ui.OAuthActivityModule
 import com.github.satoshun.example.gitpushhackathon.ui.feed.FeedActivityModule
 import com.github.satoshun.example.gitpushhackathon.ui.login.LoginActivityModule
-import com.github.satoshun.example.gitpushhackathon.ui.oauth.OAuthActivityModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.Module
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
-import javax.inject.Scope
 import javax.inject.Singleton
 
 @Singleton
@@ -36,12 +35,3 @@ interface AppComponent : AndroidInjector<App> {
   OAuthCodeModule::class
 ])
 interface AppDispatcherModule
-
-
-@Scope
-@Retention(AnnotationRetention.RUNTIME)
-annotation class PerActivity
-
-@Scope
-@Retention(AnnotationRetention.RUNTIME)
-annotation class PerFragment

@@ -1,4 +1,4 @@
-package com.github.satoshun.example.gitpushhackathon.action
+package com.github.satoshun.example.gitpushhackathon.data.action
 
 import com.github.satoshun.example.gitpushhackathon.common.fluxsupport.BaseSink
 import com.github.satoshun.example.gitpushhackathon.common.fluxsupport.BaseSource

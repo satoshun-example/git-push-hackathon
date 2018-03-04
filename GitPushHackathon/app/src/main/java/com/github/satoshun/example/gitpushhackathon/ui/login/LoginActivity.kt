@@ -4,10 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import com.github.satoshun.example.gitpushhackathon.PerActivity
 import com.github.satoshun.example.gitpushhackathon.R
-import com.github.satoshun.example.gitpushhackathon.action.OAuthCodeStore
-import com.github.satoshun.example.gitpushhackathon.ui.oauth.OAuthActivity
+import com.github.satoshun.example.gitpushhackathon.common.di.PerActivity
+import com.github.satoshun.example.gitpushhackathon.data.action.OAuthCodeStore
+import com.github.satoshun.example.gitpushhackathon.oauth.ui.OAuthActivity
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 

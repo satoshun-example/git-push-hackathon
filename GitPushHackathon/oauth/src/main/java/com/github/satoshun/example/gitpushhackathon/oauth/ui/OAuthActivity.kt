@@ -1,16 +1,15 @@
-package com.github.satoshun.example.gitpushhackathon.ui.oauth
+package com.github.satoshun.example.gitpushhackathon.oauth.ui
 
 import android.annotation.SuppressLint
 import android.databinding.DataBindingUtil
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
-import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import com.github.satoshun.example.gitpushhackathon.BuildConfig
-import com.github.satoshun.example.gitpushhackathon.R
-import com.github.satoshun.example.gitpushhackathon.databinding.OauthActBinding
+import com.github.satoshun.example.gitpushhackathon.oauth.BuildConfig
+import com.github.satoshun.example.gitpushhackathon.oauth.R
+import com.github.satoshun.example.gitpushhackathon.oauth.databinding.OauthActBinding
 import com.github.satoshun.io.reactivex.lifecycleowner.subscribeOf
 import dagger.android.support.DaggerAppCompatActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -35,7 +34,7 @@ class OAuthActivity : DaggerAppCompatActivity() {
     with(binding.webview) {
       @SuppressLint("SetJavaScriptEnabled")
       settings.javaScriptEnabled = true
-      webChromeClient = WebChromeClient()
+      webChromeClient = android.webkit.WebChromeClient()
       webViewClient = client
     }
 
@@ -51,6 +50,7 @@ class OAuthActivity : DaggerAppCompatActivity() {
         })
   }
 }
+
 
 class OAuthWebViewClient @Inject constructor(
     private val creator: OAuthActionCreator

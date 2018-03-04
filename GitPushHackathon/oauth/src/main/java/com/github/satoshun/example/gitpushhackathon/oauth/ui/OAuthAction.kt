@@ -1,6 +1,6 @@
-package com.github.satoshun.example.gitpushhackathon.ui.oauth
+package com.github.satoshun.example.gitpushhackathon.oauth.ui
 
-import com.github.satoshun.example.gitpushhackathon.PerActivity
+import com.github.satoshun.example.gitpushhackathon.common.di.PerActivity
 import com.github.satoshun.example.gitpushhackathon.common.fluxsupport.BaseSink
 import com.github.satoshun.example.gitpushhackathon.common.fluxsupport.BaseSource
 import io.reactivex.processors.PublishProcessor
