@@ -1,7 +1,7 @@
 package com.github.satoshun.example.gitpushhackathon.oauth.ui
 
 import com.github.satoshun.example.gitpushhackathon.common.di.PerActivity
-import com.github.satoshun.example.gitpushhackathon.common.fluxsupport.BaseSink
+import com.github.satoshun.example.gitpushhackathon.common.fluxsupport.BaseDispatcher
 import com.github.satoshun.example.gitpushhackathon.common.fluxsupport.BaseSource
 import com.github.satoshun.example.gitpushhackathon.common.fluxsupport.Result
 import io.reactivex.processors.PublishProcessor
@@ -10,9 +10,7 @@ import javax.inject.Inject
 data class OAuthAction(val result: Result<Unit>)
 
 @PerActivity
-class OAuthActionDispatcher @Inject constructor() :
-    BaseSource<OAuthAction>,
-    BaseSink<OAuthAction> {
+class OAuthActionDispatcher @Inject constructor() : BaseDispatcher<OAuthAction> {
   override val actions = PublishProcessor.create<OAuthAction>()!!
 
   override fun dispatch(action: OAuthAction) {

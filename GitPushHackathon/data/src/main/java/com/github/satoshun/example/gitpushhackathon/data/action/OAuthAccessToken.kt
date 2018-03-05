@@ -1,5 +1,6 @@
 package com.github.satoshun.example.gitpushhackathon.data.action
 
+import com.github.satoshun.example.gitpushhackathon.common.fluxsupport.BaseDispatcher
 import com.github.satoshun.example.gitpushhackathon.common.fluxsupport.BaseSink
 import com.github.satoshun.example.gitpushhackathon.common.fluxsupport.BaseSource
 import dagger.Binds
@@ -19,9 +20,7 @@ interface OAuthAccessTokenModule {
 data class OAuthAccessToken(val token: String)
 
 @Singleton
-class OAuthAccessTokenDispatcher @Inject constructor() :
-    BaseSource<OAuthAccessToken>,
-    BaseSink<OAuthAccessToken> {
+class OAuthAccessTokenDispatcher @Inject constructor() : BaseDispatcher<OAuthAccessToken> {
   override val actions = BehaviorProcessor.create<OAuthAccessToken>()!!
 
   override fun dispatch(action: OAuthAccessToken) {

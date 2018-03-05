@@ -2,6 +2,7 @@ package com.github.satoshun.example.gitpushhackathon.ui.feed
 
 import android.os.Bundle
 import com.github.satoshun.example.gitpushhackathon.R
+import com.github.satoshun.example.gitpushhackathon.common.fluxsupport.BaseDispatcher
 import com.github.satoshun.example.gitpushhackathon.common.fluxsupport.BaseSink
 import com.github.satoshun.example.gitpushhackathon.common.fluxsupport.BaseSource
 import dagger.android.support.DaggerAppCompatActivity
@@ -41,9 +42,7 @@ sealed class FeedAction {
   data class FeedError(val error: Throwable) : FeedAction()
 }
 
-class FeedDispatcher @Inject constructor() :
-    BaseSource<FeedAction>,
-    BaseSink<FeedAction> {
+class FeedDispatcher @Inject constructor() : BaseDispatcher<FeedAction> {
   override val actions = PublishProcessor.create<FeedAction>()!!
 
   override fun dispatch(action: FeedAction) {
