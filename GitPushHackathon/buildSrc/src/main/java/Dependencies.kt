@@ -1,5 +1,5 @@
 object Versions {
-  val build_gradle = "3.1.0-rc01"
+  val build_gradle = "3.1.0-rc02"
   val kotlin_version = "1.2.30"
 
   val support_lib = "27.1.0"
