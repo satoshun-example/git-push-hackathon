@@ -1,5 +1,7 @@
 package com.github.satoshun.example.gitpushhackathon.common.di
 
-@javax.inject.Scope
+import javax.inject.Scope
+
+@Scope
 @Retention(AnnotationRetention.RUNTIME)
 annotation class PerFragment

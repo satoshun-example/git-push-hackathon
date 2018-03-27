@@ -9,8 +9,6 @@ import io.reactivex.processors.BehaviorProcessor
 import javax.inject.Inject
 import javax.inject.Singleton
 
-// todo rename
-
 @Module
 interface OAuthAccessTokenModule {
   @Binds fun bindSource(dispatcher: OAuthAccessTokenDispatcher): BaseSource<OAuthAccessToken>
