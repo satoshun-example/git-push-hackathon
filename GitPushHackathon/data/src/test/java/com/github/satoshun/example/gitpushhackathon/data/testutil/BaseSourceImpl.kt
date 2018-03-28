@@ -4,6 +4,7 @@ import com.github.satoshun.example.gitpushhackathon.common.fluxsupport.BaseSourc
 import io.reactivex.Flowable
 import io.reactivex.processors.BehaviorProcessor
 
+
 internal class BaseSourceImpl<T>(override val actions: Flowable<T>) : BaseSource<T>
 
 fun <T> oneShotBaseSource(t: T): BaseSource<T> {
