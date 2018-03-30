@@ -14,7 +14,7 @@ object Versions {
   val rxjava = "2.1.10"
   val rxandroid = "2.0.2"
   val rxkotlin = "2.2.0"
-  val RxLifecycleOwner = "0.1.0"
+  val RxLifecycleOwner = "0.1.1"
 
   val dagger = "2.15"
   val serialization_version = "0.4.1"
