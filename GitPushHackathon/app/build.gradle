@@ -71,6 +71,12 @@ dependencies {
   androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }
 
+ktlint {
+  version = "0.20.0"
+  android = true
+  reporters = ["CHECKSTYLE"]
+}
+
 kotlin {
   experimental {
     coroutines 'enable'
