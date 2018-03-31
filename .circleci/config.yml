@@ -1,15 +1,14 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/project
+    working_directory: ~/project/GitPushHackathon
     docker:
       - image: circleci/android:api-27-alpha
     environment:
       JVM_OPTS: -Xmx3200m
     steps:
-      - checkout
-
-      - run: cd GitPushHackathon
+      - checkout:
+          path: ~/project
 
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
