@@ -30,7 +30,7 @@ jobs:
 
       - run:
           name: Run app ktlint
-          command: ./gradlew app:ktlintCheck
+          command: ./gradlew ktlintDebugCheck
       - run:
           command: gem install bundler
           when: always
