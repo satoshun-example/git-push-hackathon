@@ -31,9 +31,6 @@ jobs:
           path: app/build/test-results
 
       - run:
-          command: gem update --system 2.4.8
-          when: always
-      - run:
           command: gem install bundler
           when: always
       - restore_cache:
