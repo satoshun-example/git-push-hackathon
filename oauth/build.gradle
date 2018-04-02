@@ -1,0 +1,82 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+android {
+  compileSdkVersion 27
+
+  defaultConfig {
+    minSdkVersion 21
+    targetSdkVersion 27
+    versionCode 1
+    versionName "1.0"
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    buildConfigField("String", "CLIENT_ID", "\"${properties.getProperty("CLIENT_ID")}\"")
+    buildConfigField("String", "CLIENT_SECRET", "\"${properties.getProperty("CLIENT_SECRET")}\"")
+    buildConfigField("String", "SCHEME", "\"${properties.getProperty("SCHEME")}\"")
+    buildConfigField("String", "HOST", "\"${properties.getProperty("HOST")}\"")
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+    }
+  }
+  dataBinding {
+    enabled = true
+  }
+}
+
+dependencies {
+  implementation project(":common")
+  implementation project(":data")
+
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:${Versions.kotlin_version}"
+
+  implementation "com.android.support:appcompat-v7:${Versions.support_lib}"
+  implementation "com.android.support:design:${Versions.design_lib}"
+  implementation "com.android.support.constraint:constraint-layout:${Versions.constraintLayout}"
+
+  implementation "android.arch.lifecycle:extensions:${Versions.lifecycle}"
+  implementation "android.arch.lifecycle:viewmodel:${Versions.lifecycle}"
+  implementation "android.arch.lifecycle:livedata:${Versions.lifecycle}"
+  kapt "android.arch.lifecycle:compiler:${Versions.lifecycle}"
+
+  implementation "io.reactivex.rxjava2:rxjava:${Versions.rxjava}"
+  implementation "io.reactivex.rxjava2:rxandroid:${Versions.rxandroid}"
+  implementation "io.reactivex.rxjava2:rxkotlin:${Versions.rxkotlin}"
+  implementation "com.github.satoshun:RxLifecycleOwner:${Versions.RxLifecycleOwner}"
+
+  implementation "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
+  implementation "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+  implementation "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit}"
+  implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:1.0.0"
+
+  implementation "androidx.core:core-ktx:${Versions.ktx}"
+
+  implementation "com.google.dagger:dagger:${Versions.dagger}"
+  kapt "com.google.dagger:dagger-compiler:${Versions.dagger}"
+  implementation "com.google.dagger:dagger-android:${Versions.dagger}"
+  implementation "com.google.dagger:dagger-android-support:${Versions.dagger}"
+  kapt "com.google.dagger:dagger-android-processor:${Versions.dagger}"
+
+  testImplementation 'junit:junit:4.12'
+
+  androidTestImplementation 'com.android.support.test:runner:1.0.1'
+  androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+}
+
+ktlint {
+  version = "0.20.0"
+  android = true
+  reporters = ["CHECKSTYLE"]
+}
+
+kotlin {
+  experimental {
+    coroutines 'enable'
+  }
+}
